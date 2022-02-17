@@ -19,12 +19,12 @@ public class EmpleadoDAO {
     }
 
 
-    public Empleado autenticar(String usuario, String clave){
+    public Empleado autenticar(String nombreUsuario, String clave){
         Empleado miEmpleado = null;
 
         try {
-            pstmt = ConexionBDD.getConexion().prepareStatement("SELECT * FROM empleado WHERE usuario = ? AND clave = ?");
-            pstmt.setString(1, usuario);
+            pstmt = ConexionBDD.getConexion().prepareStatement("SELECT * FROM empleado WHERE nombre_usuario = ? AND contrasenia = ?");
+            pstmt.setString(1, nombreUsuario);
             pstmt.setString(2, clave);
             rs = pstmt.executeQuery();
             while(rs.next()) {
