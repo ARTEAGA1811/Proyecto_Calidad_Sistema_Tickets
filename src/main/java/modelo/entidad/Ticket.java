@@ -1,6 +1,8 @@
 package modelo.entidad;
 
-public class Ticket {
+import java.io.Serializable;
+
+public class Ticket implements Serializable {
     private int idTicket;
     private String titulo;
     private String fechaCreacion;

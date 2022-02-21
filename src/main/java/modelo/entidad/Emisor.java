@@ -1,6 +1,8 @@
 package modelo.entidad;
 
-public class Emisor {
+import java.io.Serializable;
+
+public class Emisor implements Serializable {
     private int idEmisor;
     private String nombre;
     private String apellido;

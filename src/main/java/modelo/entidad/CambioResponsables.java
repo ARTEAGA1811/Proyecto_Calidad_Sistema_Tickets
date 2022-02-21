@@ -1,6 +1,8 @@
 package modelo.entidad;
 
-public class CambioResponsables {
+import java.io.Serializable;
+
+public class CambioResponsables implements Serializable {
     private int idCambio;
     private int idTicket;
     private int idAntiguoResponsable;

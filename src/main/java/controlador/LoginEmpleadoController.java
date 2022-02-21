@@ -7,6 +7,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Locale;
 
 @WebServlet(name = "LoginEmpleadoController", value = "/LoginEmpleadoController")
 public class LoginEmpleadoController extends HttpServlet {
@@ -25,10 +26,12 @@ public class LoginEmpleadoController extends HttpServlet {
         if (miEmpleado != null) {
             HttpSession miSesion = request.getSession();
             miSesion.setAttribute("miEmpleado", miEmpleado);
-            request.setAttribute("nombre", miEmpleado.getNombre());
+            request.setAttribute("nombreEmpleado", miEmpleado.getNombre().toUpperCase());
 
-            getServletContext().getRequestDispatcher("/jsp/moduloEmpleado/listaTickets.jsp").forward(request, response);
+            //getServletContext().getRequestDispatcher("/jsp/moduloEmpleado/listaTickets.jsp").forward(request, response);
+            request.getRequestDispatcher("ListarTicketsController").forward(request, response);
         }else{
+            System.out.println("No se encontro el empleado");
             getServletContext().getRequestDispatcher("/jsp/moduloEmpleado/loginEmpleado.jsp").forward(request, response);
         }
 
