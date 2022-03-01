@@ -2,6 +2,7 @@ package controlador;
 
 import modelo.dao.EmpleadoDAO;
 import modelo.entidad.Empleado;
+import modelo.validacion.BloqueoEmpleado;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -24,14 +25,30 @@ public class LoginEmpleadoController extends HttpServlet {
         Empleado miEmpleado = empleadodao.autenticar(nombreUsuario, clave);
 
         if (miEmpleado != null) {
-            HttpSession miSesion = request.getSession();
-            miSesion.setAttribute("miEmpleado", miEmpleado);
-            request.setAttribute("nombreEmpleado", miEmpleado.getNombre().toUpperCase());
+            //Aqui el empleado esta autenticado, se verifica tambien si no esta bloqueado
+            String empleadoBloqueado = BloqueoEmpleado.verificarBloqueo(nombreUsuario);
+            System.out.println("Empleado bloqueado: " + empleadoBloqueado);
+            if(empleadoBloqueado == null){
+                //El empleado no esta bloqueado
+                BloqueoEmpleado.limpiarEmpleado(nombreUsuario);
+                HttpSession miSesion = request.getSession();
+                miSesion.setAttribute("miEmpleado", miEmpleado);
+                request.getRequestDispatcher("ListarTicketsController").forward(request, response);
+            }else{
+                //El empleado esta bloqueado
+                System.out.println("Empleado bloqueado: " + empleadoBloqueado);
+                request.setAttribute("mensaje", empleadoBloqueado);
+                getServletContext().getRequestDispatcher("/jsp/moduloEmpleado/loginEmpleado.jsp").forward(request, response);
 
-            //getServletContext().getRequestDispatcher("/jsp/moduloEmpleado/listaTickets.jsp").forward(request, response);
-            request.getRequestDispatcher("ListarTicketsController").forward(request, response);
+            }
+
         }else{
+            //Aqui es que el empleado no esta autenticado
+            BloqueoEmpleado.bloquearEmpleado(nombreUsuario);
+            String empleadoBloqueado = BloqueoEmpleado.verificarBloqueo(nombreUsuario);
+            System.out.println("Empleado bloqueado: " + empleadoBloqueado);
             System.out.println("No se encontro el empleado");
+            request.setAttribute("mensaje", "Usuario o clave incorrectos");
             getServletContext().getRequestDispatcher("/jsp/moduloEmpleado/loginEmpleado.jsp").forward(request, response);
         }
 

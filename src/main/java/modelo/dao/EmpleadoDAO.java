@@ -13,6 +13,7 @@ public class EmpleadoDAO {
     private PreparedStatement pstmt = null;
 
     String SQLSELECT = "SELECT * FROM empleado WHERE id_empleado = ?";
+    String SQLAUTENTICAR = "SELECT * FROM empleado WHERE nombre_usuario = ? AND contrasenia = ?";
 
 
     public EmpleadoDAO() {
@@ -23,7 +24,7 @@ public class EmpleadoDAO {
         Empleado miEmpleado = null;
 
         try {
-            pstmt = ConexionBDD.getConexion().prepareStatement("SELECT * FROM empleado WHERE nombre_usuario = ? AND contrasenia = ?");
+            pstmt = ConexionBDD.getConexion().prepareStatement(SQLAUTENTICAR);
             pstmt.setString(1, nombreUsuario);
             pstmt.setString(2, clave);
             rs = pstmt.executeQuery();

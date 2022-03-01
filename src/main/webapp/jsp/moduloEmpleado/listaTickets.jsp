@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/listaTickets.css">
 </head>
@@ -34,22 +35,27 @@
     <main class="container">
         <section class="principal">
             <div class="encabezado">
-                <h2>Tickets</h2>
-                <p>Ordenar por</p>
-                <select name="" id="">
-                    <option value="">Todos</option>
-                    <option value="">Abiertos</option>
-                    <option value="">Cerrados</option>
-                </select>
+                <div class="aux">
+                    <h2>Mis tickets</h2>
+                    <i class="fi fi-rr-ticket"></i>
+                </div>
+                <div class="ordenarTicket_container">
+                    <p>Ordenar por</p>
+                    <select name="" id="">
+                        <option value="">Todos</option>
+                        <option value="">Abiertos</option>
+                        <option value="">Cerrados</option>
+                    </select>
+                </div>
             </div>
             <table class="tabla">
                 <tr>
                     <td class="tabla_titulo td">ID</td>
                     <td class="tabla_titulo td">Título</td>
-                    <td class="tabla_titulo td">Fecha Creacion</td>
+                    <td class="tabla_titulo td">Fecha de Creación</td>
                     <td class="tabla_titulo td">Prioridad</td>
                     <td class="tabla_titulo td">Estado</td>
-                    <td class="tabla_titulo td">Acciones</td>
+                    <td class="tabla_titulo td titulo_acciones">Acciones</td>
                 </tr>
                 <c:forEach items="${misTickets}" var="tickets">
                     <tr>
@@ -58,7 +64,7 @@
                         <td class="td">${tickets.fechaCreacion}</td>
                         <td class="td">${tickets.prioridad}</td>
                         <td class="td">${tickets.estado}</td>
-                        <td class="td"><a href="">Resolver</a> <a href="">Cambiar Responsable</a></td>
+                        <td class="td acciones"><a href="" class="a_abrir">Abrir</a> <a href="">Cambiar Responsable</a></td>
                     </tr>
                 </c:forEach>
             </table>

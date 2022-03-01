@@ -14,39 +14,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/loginEmpleado.css">
 </head>
 <body>
-<div class="login">
-    <header class="header">
-        <h1 class="titulo">Sistema de Tickets</h1>
-        <nav class="sub-header">
-            <h2>Módulo: Empleados</h2>
-        </nav>
-    </header>
-    <main class="container">
-        <figure class="container_img">
-            <img src="${pageContext.request.contextPath}/assets/ticket2.png" alt="ticket" class="ticket-img">
-        </figure>
-        <section class="form_container">
-            <h2>Login</h2>
-            <form method="POST" action="LoginEmpleadoController" class="formulario">
-                <label for="txtNombreUsuario">Nombre de Usuario</label>
-                <input type="text" name="nombreUsuario" id="txtNombreUsuario" class="input">
+<div class="container">
+    <main class="body_container">
+        <section class="login">
+            <h1 class="titulo">Sistema de Tickets</h1>
+            <div class="form_container">
+                <h2>Login</h2>
+                <form method="POST" class="formulario">
+                    <label for="txtNombreUsuario">Nombre de Usuario</label>
+                    <input type="text" name="nombreUsuario" id="txtNombreUsuario" class="input">
 
-                <label for="txtContrasena">Contraseña</label>
-                <input type="password" name="clave" id="txtContrasena" class="input">
-                <div class="contenedor-recordarme">
-                    <input type="checkbox">
-                    <label>Recordarme</label>
-                </div>
-                <input type="submit" value="Ingresar" class="btn-enviar">
-            </form>
+                    <label for="txtContrasena">Contraseña</label>
+                    <input type="password" name="clave" id="txtContrasena" class="input">
+                    <div class="contenedor-recordarme">
+                        <input type="checkbox" id="check">
+                        <label for="check">Recordarme</label>
+                    </div>
+                    <p class="error_mensaje">${mensaje}</p>
+                    <input type="submit" value="Ingresar" class="btn-enviar">
+                </form>
+            </div>
+        </section>
+        <section class="img_container">
+            <span class="img_ticket"></span>
         </section>
     </main>
 </div>

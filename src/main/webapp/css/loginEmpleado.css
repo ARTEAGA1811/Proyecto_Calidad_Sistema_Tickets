@@ -1,113 +1,80 @@
 :root{
-    --azulOscuro: #142B45;
-    --blanco: #FFFFFF;
-    --azulNormal: #2c5f9e;
-    --celeste: #dfe7f1;
-    --grande: 3.4rem;
-    --mediano: 2.5rem;
-    --chico: 1.6rem;
-}
+    --color-primario:#083e70;
+    --color-secundario: #ffffff;
+    --grande: 3.5rem;
+    --mediano: 2.8rem;
+    --chico: 2.4rem;
 
-*{
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 html{
     font-size: 62.5%;
 }
 
-.login{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-}
-
-.header .titulo{
-    display: block;
-    font-size: var(--grande);
-    font-weight: bold;
-    background-color: var(--azulOscuro);
-    color: var(--blanco);
-    padding: 1rem 1.5rem;
-    text-align: center;
-}
-
-
-.header .sub-header{
-    width: 100%;
-    height: auto;
-    min-height: 6rem;
-    background-color: var(--blanco);
-    display: flex;
-}
-
-.sub-header > h2{
-    font-size: var(--grande);
-    font-weight: bold;
-    color: var(--azulNormal);
-    align-self: center;
-    padding-left: 3rem;
-
+body{
+    margin: 0;
+    font-family: Inter, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    place-content: center;
     width: 100%;
-    height: 100%;
-    background-color: var(--celeste);
-}
-.container_img{
-    width: 70%;
-    place-self: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, var(--color-primario), var(--color-secundario));
 }
 
-.container_img img{
-    width: 100%;
-
+.body_container{
+    display: grid;
+    grid-template-columns: minmax(min-content, 35rem) minmax(min-content, 40rem);
+    place-content: center;
+    background-color: var(--color-secundario);
+    border-radius: 10px;
 }
 
-.form_container{
-    width: 70%;
-    /* max-width: 40rem; */
-    height: min-content;
-    justify-self: center;
-    background-color: var(--blanco);
-    margin-top: 3rem;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-    border-radius: 0.8rem;
+
+.body_container .login{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding-bottom: 1rem;
 }
+
+.login .titulo{
+    font-weight: bolder;
+    font-size: var(--grande);
+    margin-bottom: 1rem;
+    color: var(--color-primario);
+    text-align: center;
+}
+
 
 .form_container > h2{
-    font-size: var(--grande);
+    font-size: var(--mediano);
     font-weight: 700;
     text-align: center;
+    margin-top: 1rem;
     margin-bottom: 3rem;
-    color: var(--azulOscuro);
 }
 
 .formulario{
     display: flex;
     flex-direction: column;
-    padding-left: 6rem;
-    padding-right: 6rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+
 }
 
 .formulario label{
-    font-size: var(--mediano);
-    font-weight: 500;
+    font-size: var(--chico);
     margin-bottom: 0.3rem;
 }
 
 .formulario > input{
-    width: 100%;
-    height: 3.4rem;
-    border: 1px solid var(--azulNormal);
+    /* height: 3rem; */
+    border: 1px solid var(--color-primario);
     border-radius: 0.8rem;
     font-size: var(--chico);
 
@@ -117,22 +84,56 @@ html{
 .contenedor-recordarme{
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     padding-left: 0.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .contenedor-recordarme label{
-    font-size: var(--chico);
-    font-weight: 500;
+    font-size: 2rem;
+}
+
+.error_mensaje{
+    color: rgb(255, 0, 0);
+    font-size: 1.1rem;
+    text-align: center;
 }
 
 .btn-enviar{
     width: 100%;
     border: none;
+    font-family: Inter, sans-serif;
+    padding: 0.3rem;
     font-size: var(--mediano);
     font-weight: 500;
-    background-color: var(--azulNormal);
-    color: var(--blanco);
+    color: var(--color-secundario);
     cursor: pointer;
+    background-color: var(--color-primario);
+}
+
+.img_container{
+    background-color: var(--color-primario);
+    border-radius: 0 10px 10px 0;
+    padding: 3rem;
+
+}
+
+.img_ticket{
+    display: inline-block;
+    background-image: url('../assets/ticket2.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 800px){
+    .img_container{
+        display: none;
+    }
+    .body_container{
+        grid-template-columns: auto;
+        padding: 2rem;
+    }
 }
