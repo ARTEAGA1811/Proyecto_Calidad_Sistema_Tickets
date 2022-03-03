@@ -5,7 +5,7 @@
   Time: 8:04 p. m.
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
     <header class="header">
         <h1 class="titulo">Sistema de Tickets</h1>
         <nav class="sub-header">
-            <h2>Bienvenido ${nombreEmpleado}</h2>
+            <h2>Bienvenido/a ${nombreEmpleado}</h2>
             <a href="LogoutEmpleadoController">Salir</a>
         </nav>
     </header>
@@ -43,8 +43,8 @@
             <table class="tabla">
                 <tr>
                     <td class="tabla_titulo td">ID</td>
-                    <td class="tabla_titulo td">TÃ­tulo</td>
-                    <td class="tabla_titulo td">Fecha de CreaciÃ³n</td>
+                    <td class="tabla_titulo td">Título</td>
+                    <td class="tabla_titulo td">Fecha de Creación</td>
                     <td class="tabla_titulo td">Prioridad</td>
                     <td class="tabla_titulo td">Estado</td>
                     <td class="tabla_titulo td titulo_acciones">Acciones</td>
@@ -54,8 +54,8 @@
                         <td class="td">${tickets.idTicket}</td>
                         <td class="td">${tickets.titulo}</td>
                         <td class="td">${tickets.fechaCreacion}</td>
-                        <td class="td">${tickets.prioridad}</td>
-                        <td class="td">${tickets.estado}</td>
+                        <td class="td c_prioridad">${tickets.prioridad}</td>
+                        <td class="td c_estado">${tickets.estado}</td>
                         <td class="td acciones"><a href="GestionarTicketController?idTicket=${tickets.idTicket}" class="a_abrir">Aceptar</a> <a href="CambiarResponsableController?idTicket=${tickets.idTicket}">Cambiar Responsable</a></td>
                     </tr>
                 </c:forEach>
@@ -63,5 +63,29 @@
         </section>
     </main>
 </div>
+<script>
+    var colorPrioridad = document.querySelectorAll('.tabla .c_prioridad');
+    var colorEstado = document.querySelectorAll('.tabla .c_estado');
+
+    colorPrioridad.forEach(function(color) {
+        if (color.innerHTML === 'Alta') {
+            color.style.color = 'red';
+        } else if (color.innerHTML === 'Media') {
+            color.style.color = 'orange';
+        } else if (color.innerHTML === 'Baja') {
+            color.style.color = 'green';
+        }
+    });
+
+    colorEstado.forEach(function(color) {
+        if (color.innerHTML === 'Pendiente') {
+            color.style.color = 'orange';
+        } else if (color.innerHTML === 'Finalizado') {
+            color.style.color = 'green';
+        }
+    });
+
+
+</script>
 </body>
 </html>

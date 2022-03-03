@@ -129,7 +129,12 @@ public class TicketDAO {
     public int obtenerEmpleadoConMenosCarga(){
         int idEmpleado = 0;
         try {
-            pstmt = ConexionBDD.getConexion().prepareStatement("SELECT id_empleado, COUNT( id_empleado ) AS total FROM  ticket GROUP BY id_empleado ORDER BY total LIMIT 1");
+            pstmt = ConexionBDD.getConexion().prepareStatement("SELECT empleado.id_empleado, COUNT(ticket.id_empleado) AS total\n" +
+                    "FROM empleado \n" +
+                    "LEFT JOIN ticket ON empleado.id_empleado = ticket.id_empleado\n" +
+                    "GROUP BY id_empleado \n" +
+                    "ORDER BY total\n" +
+                    "LIMIT 1");
             rs = pstmt.executeQuery();
             while (rs.next()){
                 idEmpleado = rs.getInt("id_empleado");

@@ -5,7 +5,7 @@
   Time: 8:41 p. m.
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
 
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informaci贸n del Ticket</title>
+    <title>Informaci髇 del Ticket</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
     <header class="header">
         <h1 class="titulo">Sistema de Tickets</h1>
         <nav class="sub-header">
-            <h2>Informaci贸n de mi ticket</h2>
+            <h2>Informaci髇 de mi ticket</h2>
             <form method="POST" action="GestionSolicitudController">
                 <input type="submit" value="Regresar" class="boton">
             </form>
@@ -37,18 +37,18 @@
         <section class="principal">
             <div class="principal_container">
                 <div class="datos_container">
-                    <label>T铆tulo</label>
+                    <label>T韙ulo</label>
                     <input type="text" value="${miTicket.titulo}" class="dato" readonly>
-                    <label>Fecha de creaci贸n</label>
+                    <label>Fecha de creaci髇</label>
                     <input type="text" class="dato" readonly value="${miTicket.fechaCreacion}">
-                    <label>Mi Descripci贸n</label>
+                    <label>Mi Descripci髇</label>
                     <textarea class="dato" readonly>${miTicket.descripcion}</textarea>
                 </div>
 
                 <div class="emisor_container">
-                    <label class="info">Soluci贸n</label>
-                    <textarea class="dato" maxlength="300" placeholder="Todav铆a no hay una soluci贸n para este ticket" readonly>${miTicket.solucion}</textarea>
-                    <label for="" class="info">Tiempo de resoluci贸n</label>
+                    <label class="info">Soluci髇</label>
+                    <textarea class="dato" maxlength="300" placeholder="Todav韆 no hay una soluci髇 para este ticket" readonly>${miTicket.solucion}</textarea>
+                    <label for="" class="info">Tiempo de resoluci髇</label>
                     <input type="text" value="${tiempoResolucion}" class="dato" readonly placeholder="No finalizado">
                 </div>
             </div>

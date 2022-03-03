@@ -5,7 +5,7 @@
   Time: 4:00 p. m.
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
 
 
 <!DOCTYPE html>
@@ -27,14 +27,10 @@
         <h2>Solicitud de ticket</h2>
         <form method="POST" action="LoginEmisorController" class="formulario">
           <label for="txtNombreUsuario">Correo</label>
-          <input type="text" name="nombreUsuario" id="txtNombreUsuario" class="input">
+          <input type="email" name="nombreUsuario" id="txtNombreUsuario" class="input" maxlength="40" required>
 
-          <label for="txtContrasena">ContraseÃ±a</label>
-          <input type="password" name="clave" id="txtContrasena" class="input">
-          <div class="contenedor-recordarme">
-            <input type="checkbox" id="check">
-            <label for="check">Recordarme</label>
-          </div>
+          <label for="txtContrasena">Contraseña</label>
+          <input type="password" name="clave" id="txtContrasena" class="input" maxlength="25" required >
           <p class="error_mensaje">${mensaje}</p>
           <input type="submit" value="Ingresar" class="btn-enviar">
         </form>

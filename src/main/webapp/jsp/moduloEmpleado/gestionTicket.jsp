@@ -5,7 +5,7 @@
   Time: 2:27 p. m.
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -27,7 +27,7 @@
   <header class="header">
     <h1 class="titulo">Sistema de Tickets</h1>
     <nav class="sub-header">
-      <h2>Gesti贸n del Ticket</h2>
+      <h2>Gesti髇 del Ticket</h2>
       <form method="POST" action="ListarTicketsController">
         <input type="submit" value="Cancelar" class="boton" >
       </form>
@@ -39,9 +39,9 @@
         <form method="POST" action="GestionarTicketController" class="datos_container">
           <label>ID</label>
           <input type="text" value="${miTicket.idTicket}" class="dato" name="idTicket"readonly>
-          <label>T铆tulo</label>
+          <label>T韙ulo</label>
           <input type="text" value="${miTicket.titulo}" class="dato"  name="titulo"readonly>
-          <label>Fecha creaci贸n</label>
+          <label>Fecha creaci髇</label>
           <input type="text" class="dato" value="${miTicket.fechaCreacion}" name="fechaCreacion" readonly>
           <label>Prioridad</label>
           <select name="selectPrioridad" class="dato">
@@ -77,14 +77,14 @@
               </c:when>
             </c:choose>
           </select>
-          <label>Descripci贸n</label>
+          <label>Descripci髇</label>
           <textarea class="dato" name="descripcion"  readonly>${miTicket.descripcion}</textarea>
-          <label>Soluci贸n</label>
-          <textarea class="dato" name="solucion" maxlength="300" placeholder="Agregar soluci贸n al ticket">${miTicket.solucion}</textarea>
-          <label for="">Tiempo de resoluci贸n</label>
+          <label>Soluci髇</label>
+          <textarea class="dato" name="solucion" maxlength="300" placeholder="Agregar soluci髇 al ticket">${miTicket.solucion}</textarea>
+          <label for="">Tiempo de resoluci髇</label>
           <input type="text" value="${tiempoResolucion}" class="dato" readonly placeholder="No finalizado">
 
-          <input type="submit" value="Guardar" class="enviar">
+          <input type="submit" value="Guardar" class="enviar" onclick="enviarMensaje();">
         </form>
 
         <div class="emisor_container">
@@ -97,5 +97,10 @@
     </section>
   </main>
 </div>
+<script>
+  function enviarMensaje() {
+    alert("Cambios guardados con 閤ito");
+  }
+</script>
 </body>
 </html>

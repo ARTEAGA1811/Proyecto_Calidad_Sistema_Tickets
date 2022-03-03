@@ -5,7 +5,7 @@
   Time: 1:15 a. m.
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -45,8 +45,8 @@
                         </c:forEach>
                     </select>
 
-                    <label>RazÃ³n del cambio</label>
-                    <textarea class="dato" name="razonCambio" maxlength="200" placeholder="Detallar la razÃ³n" required></textarea>
+                    <label>Razón del cambio</label>
+                    <textarea class="dato" name="razonCambio" maxlength="200" placeholder="Detallar la razón" required></textarea>
                     <input type="hidden" name="idTicket" value="${idTicket}">
                     <input type="submit" value="Cambiar" class="enviar">
                 </form>

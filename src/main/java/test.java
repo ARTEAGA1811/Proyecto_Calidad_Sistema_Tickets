@@ -64,23 +64,25 @@ public class test {
 //        String miFecha = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 //        System.out.println(miFecha);
 
-        Ticket miTicket = new Ticket();
-        miTicket.setFechaCreacion(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-        miTicket.setTitulo("titulo");
-        miTicket.setEstado("Pendiente");
-        miTicket.setPrioridad("Baja");
-        miTicket.setDescripcion("descripcion");
-        miTicket.setSolucion(null);
-        miTicket.setFechaCierre(null);
-
-        Emisor emisor = new Emisor();
-        emisor.setIdEmisor(1);
-        miTicket.setEmisor(emisor);
-
-        System.out.println(miTicket);
-
-        TicketDAO miTicketDAO = new TicketDAO();
-        miTicketDAO.crearTicket(miTicket);
+//        Ticket miTicket = new Ticket();
+//        miTicket.setFechaCreacion(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+//        miTicket.setTitulo("titulo");
+//        miTicket.setEstado("Pendiente");
+//        miTicket.setPrioridad("Baja");
+//        miTicket.setDescripcion("descripcion");
+//        miTicket.setSolucion(null);
+//        miTicket.setFechaCierre(null);
+//
+//        Emisor emisor = new Emisor();
+//        emisor.setIdEmisor(1);
+//        miTicket.setEmisor(emisor);
+//
+//        System.out.println(miTicket);
+//
+//        TicketDAO miTicketDAO = new TicketDAO();
+//        miTicketDAO.crearTicket(miTicket);
+        TicketDAO  miTicketDAO = new TicketDAO();
+        System.out.println(miTicketDAO.obtenerEmpleadoConMenosCarga());
 
 
 

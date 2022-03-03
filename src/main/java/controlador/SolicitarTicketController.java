@@ -43,6 +43,8 @@ public class SolicitarTicketController extends HttpServlet {
         miTicket.setFechaCierre(null);
         miTicket.setEmisor(miEmisor);
 
+        //Imprimo el ticket
+        System.out.println("Imprimo el ticket: " + miTicket);
         //Se guarda el ticket en la base de datos
         miTicketDAO.crearTicket(miTicket);
 
