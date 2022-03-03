@@ -54,10 +54,10 @@
               <td class="tabla_titulo td">Título</td>
               <td class="tabla_titulo td titulo_acciones">Acciones</td>
             </tr>
-            <c:forEach items="${tickets}" var="ticket">
+            <c:forEach items="${listaTicketsDelEmisor}" var="ticket">
               <tr>
                 <td class="td">${ticket.titulo}</td>
-                <td class="td acciones"><a href="" class="a_abrir">Abrir</a></td>
+                <td class="td acciones"><a href="GestionSolicitudController?idTicket=${ticket.idTicket}" class="a_abrir">Abrir</a></td>
               </tr>
             </c:forEach>
           </table>

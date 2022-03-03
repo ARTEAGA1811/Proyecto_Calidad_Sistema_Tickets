@@ -15,6 +15,7 @@ public class TicketDAO {
     private String SQL_SELECTALL = "SELECT * FROM ticket WHERE id_empleado = ?";
     private String SQL_SELECTALL_IDTICKET = "SELECT * FROM ticket WHERE id_ticket = ?";
     private String SQL_UPDATE = "UPDATE ticket SET estado = ?, prioridad = ?, solucion = ?, fecha_cierre = ? WHERE id_ticket = ?";
+    private String SQL_SELECTALL_IDEMISOR = "SELECT * FROM ticket WHERE id_emisor = ?";
 
     private ResultSet rs = null;
     private PreparedStatement pstmt = null;
@@ -142,7 +143,33 @@ public class TicketDAO {
         return idEmpleado;
     }
 
+    public List<Ticket> obtenerTicketsPorEmisor(int idEmisor){
+        List<Ticket> listaTickets = new ArrayList<>();
+        try {
+            pstmt = ConexionBDD.getConexion().prepareStatement(SQL_SELECTALL_IDEMISOR);
+            pstmt.setInt(1, idEmisor);
+            rs = pstmt.executeQuery();
+            while (rs.next()){
+                Ticket ticket = new Ticket();
+                ticket.setIdTicket(rs.getInt("id_ticket"));
+                ticket.setFechaCreacion(rs.getString("fecha_creacion"));
+                ticket.setTitulo(rs.getString("titulo"));
+                ticket.setEstado(rs.getString("estado"));
+                ticket.setPrioridad(rs.getString("prioridad"));
+                ticket.setDescripcion(rs.getString("descripcion"));
+                ticket.setSolucion(rs.getString("solucion"));
+                ticket.setFechaCierre(rs.getString("fecha_cierre"));
+                ticket.setEmpleadoEncargado(new EmpleadoDAO().obtenerEmpleado(rs.getInt("id_empleado")));
+                ticket.setEmisor(new EmisorDAO().obtenerEmisor(rs.getInt("id_emisor")));
+                listaTickets.add(ticket);
+            }
 
+        }catch (SQLException e){
+            System.out.println("Error al obtener los tickets por emisor");
+            e.printStackTrace();
+        }
+        return listaTickets;
+    }
 
 
 
