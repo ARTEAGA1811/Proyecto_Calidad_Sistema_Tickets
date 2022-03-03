@@ -24,7 +24,7 @@
             <h1 class="titulo">Sistema de Tickets</h1>
             <div class="form_container">
                 <h2>Login</h2>
-                <form method="POST" class="formulario">
+                <form method="POST" action="LoginEmpleadoController" class="formulario">
                     <label for="txtNombreUsuario">Nombre de Usuario</label>
                     <input type="text" name="nombreUsuario" id="txtNombreUsuario" class="input">
 
@@ -43,6 +43,9 @@
             <span class="img_ticket"></span>
         </section>
     </main>
+    <footer class="cambio_modulo">
+        <a href="LoginEmisorController">Acceder como usuario</a>
+    </footer>
 </div>
 </body>
 </html>

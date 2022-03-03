@@ -39,14 +39,6 @@
                     <h2>Mis tickets</h2>
                     <i class="fi fi-rr-ticket"></i>
                 </div>
-                <div class="ordenarTicket_container">
-                    <p>Ordenar por</p>
-                    <select name="" id="">
-                        <option value="">Todos</option>
-                        <option value="">Abiertos</option>
-                        <option value="">Cerrados</option>
-                    </select>
-                </div>
             </div>
             <table class="tabla">
                 <tr>
@@ -64,7 +56,7 @@
                         <td class="td">${tickets.fechaCreacion}</td>
                         <td class="td">${tickets.prioridad}</td>
                         <td class="td">${tickets.estado}</td>
-                        <td class="td acciones"><a href="" class="a_abrir">Abrir</a> <a href="">Cambiar Responsable</a></td>
+                        <td class="td acciones"><a href="GestionarTicketController?idTicket=${tickets.idTicket}" class="a_abrir">Aceptar</a> <a href="CambiarResponsableController?idTicket=${tickets.idTicket}">Cambiar Responsable</a></td>
                     </tr>
                 </c:forEach>
             </table>

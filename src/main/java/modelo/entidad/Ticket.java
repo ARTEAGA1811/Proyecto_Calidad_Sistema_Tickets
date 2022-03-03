@@ -41,6 +41,14 @@ public class Ticket implements Serializable {
         this.emisor = emisor;
     }
 
+    public Ticket(int idTicket, String estado, String prioridad, String solucion, String fechaCierre) {
+        this.idTicket = idTicket;
+        this.estado = estado;
+        this.prioridad = prioridad;
+        this.solucion = solucion;
+        this.fechaCierre = fechaCierre;
+    }
+
 
     public int getIdTicket() {
         return idTicket;

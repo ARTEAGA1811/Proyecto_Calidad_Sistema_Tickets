@@ -3,12 +3,14 @@ package controlador;
 import modelo.dao.TicketDAO;
 import modelo.entidad.Empleado;
 import modelo.entidad.Ticket;
+import modelo.validacion.OrdenarTicketPorEstado;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -30,9 +32,13 @@ public class ListarTicketsController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Servlet ListarTicketsController POST");
 
+        //Se obtiene al empleado que está en sesión
         Empleado miEmpleado = (Empleado) request.getSession().getAttribute("miEmpleado");
+        //Se obtiene la lista de tickets del empleado
         TicketDAO ticketdao = new TicketDAO();
         List<Ticket> misTickets = ticketdao.obtenerTodosTickets(miEmpleado.getIdEmpleado());
+        //Se ordena la lista priorizando los tickets en estado pendiente
+        Collections.sort(misTickets, new OrdenarTicketPorEstado());
         for (Ticket t : misTickets) {
             System.out.println(t);
         }

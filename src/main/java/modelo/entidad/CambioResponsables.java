@@ -5,18 +5,18 @@ import java.io.Serializable;
 public class CambioResponsables implements Serializable {
     private int idCambio;
     private int idTicket;
-    private int idAntiguoResponsable;
-    private int idNuevoResponsable;
+    private Empleado antiguoResponsable;
+    private Empleado nuevoResponsable;
     private String razonCambio;
 
     public CambioResponsables() {
     }
 
-    public CambioResponsables(int idCambio, int idTicket, int idAntiguoResponsable, int idNuevoResponsable, String razonCambio) {
+    public CambioResponsables(int idCambio, int idTicket, Empleado antiguoResponsable, Empleado nuevoResponsable, String razonCambio) {
         this.idCambio = idCambio;
         this.idTicket = idTicket;
-        this.idAntiguoResponsable = idAntiguoResponsable;
-        this.idNuevoResponsable = idNuevoResponsable;
+        this.antiguoResponsable = antiguoResponsable;
+        this.nuevoResponsable = nuevoResponsable;
         this.razonCambio = razonCambio;
     }
 
@@ -36,20 +36,20 @@ public class CambioResponsables implements Serializable {
         this.idTicket = idTicket;
     }
 
-    public int getIdAntiguoResponsable() {
-        return idAntiguoResponsable;
+    public Empleado getAntiguoResponsable() {
+        return antiguoResponsable;
     }
 
-    public void setIdAntiguoResponsable(int idAntiguoResponsable) {
-        this.idAntiguoResponsable = idAntiguoResponsable;
+    public void setAntiguoResponsable(Empleado antiguoResponsable) {
+        this.antiguoResponsable = antiguoResponsable;
     }
 
-    public int getIdNuevoResponsable() {
-        return idNuevoResponsable;
+    public Empleado getNuevoResponsable() {
+        return nuevoResponsable;
     }
 
-    public void setIdNuevoResponsable(int idNuevoResponsable) {
-        this.idNuevoResponsable = idNuevoResponsable;
+    public void setNuevoResponsable(Empleado nuevoResponsable) {
+        this.nuevoResponsable = nuevoResponsable;
     }
 
     public String getRazonCambio() {
@@ -65,8 +65,8 @@ public class CambioResponsables implements Serializable {
         return "CambioResponsables{" +
                 "idCambio=" + idCambio +
                 ", idTicket=" + idTicket +
-                ", idAntiguoResponsable=" + idAntiguoResponsable +
-                ", idNuevoResponsable=" + idNuevoResponsable +
+                ", antiguoResponsable=" + antiguoResponsable +
+                ", nuevoResponsable=" + nuevoResponsable +
                 ", razonCambio='" + razonCambio + '\'' +
                 '}';
     }

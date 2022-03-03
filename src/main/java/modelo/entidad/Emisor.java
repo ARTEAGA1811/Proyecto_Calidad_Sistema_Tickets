@@ -7,21 +7,24 @@ public class Emisor implements Serializable {
     private String nombre;
     private String apellido;
     private String correo;
+    private String clave;
 
     public Emisor(){
 
     }
 
-    public Emisor(int idEmisor, String nombre, String apellido, String correo){
+    public Emisor(int idEmisor, String nombre, String apellido, String correo, String clave) {
         this.idEmisor = idEmisor;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
+        this.clave = clave;
     }
-    public Emisor(String nombre, String apellido, String correo){
+    public Emisor(String nombre, String apellido, String correo, String clave) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
+        this.clave = clave;
     }
 
     public int getIdEmisor() {
@@ -56,6 +59,15 @@ public class Emisor implements Serializable {
         this.correo = correo;
     }
 
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+
     @Override
     public String toString() {
         return "Emisor{" +
@@ -63,6 +75,7 @@ public class Emisor implements Serializable {
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", correo='" + correo + '\'' +
+                ", clave='" + clave + '\'' +
                 '}';
     }
 }

@@ -14,11 +14,13 @@ import java.util.Locale;
 public class LoginEmpleadoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("LoginEmpleadoController - doGet");
         getServletContext().getRequestDispatcher("/jsp/moduloEmpleado/loginEmpleado.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("LoginEmpleadoController - doPost");
         String nombreUsuario = request.getParameter("nombreUsuario");
         String clave = request.getParameter("clave");
         EmpleadoDAO empleadodao = new EmpleadoDAO();
